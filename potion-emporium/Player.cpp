@@ -1,5 +1,6 @@
 #include "Player.h"
 #include <iostream>
+#include <cassert>
 
 void Player::printInventory() const 
 {
@@ -19,6 +20,15 @@ void Player::printInventory() const
     {
         std::cout << "No potions.\n";
     }
+}
 
-    std::cout << "You left with " << m_gold << '\n';
+void Player::removeGold(int amount)
+{
+    m_gold-=amount;
+}
+
+void Player::addPotion(int index)
+{
+    assert(index < Potion::max_types);
+    m_inventory[index]++;
 }

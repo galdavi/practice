@@ -16,6 +16,8 @@ public:
     const std::string& getName()const {return m_name;}
     int getGold()const {return m_gold;}
     void printInventory() const;
+    void removeGold(int amount);
+    void addPotion(int index);
 private:
     std::string m_name{""};
     std::array<int, static_cast<std::size_t>(Potion::max_types)> m_inventory{};

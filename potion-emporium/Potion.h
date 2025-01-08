@@ -19,7 +19,6 @@ namespace Potion
     constexpr std::array names{"healing", "mana", "speed", "invisibility"};
 
     void shop();
-    std::string getName();
 }
 
 #endif
