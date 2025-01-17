@@ -5,15 +5,11 @@ int main()
 {
     Blackjack blackjack{};
 
+    do
+    {
+        blackjack.gam();
 
-        if (blackjack.game())
-        {
-            std::cout << "Winner, Winner, Chicken Dinner'\n";
-        }
-        else
-        {
-            std::cout << "You lose. \nLoser, Loser, Shitty User'\n";
-        }
-
+    } while (blackjack.playAgain());
+    
     return 0;
 }

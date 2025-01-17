@@ -10,15 +10,16 @@ public:
 
     bool game();
     void displayCards() const;
-    void gameOver() const;
-    bool playAgain() const;
+    void reset() {*this = {};};
+    bool playAgain();
+    void winner() const ;
+    void gam();
 private:
     Player m_player{};
     Player m_dealer{};
     Deck m_deck{};
 
-    const int m_bustValue{21};
-    bool m_gameOver{false};
+    bool m_gameOver{false}; //variable is used so that the ui display settings
 };
 
 #endif

@@ -1,5 +1,7 @@
 #include "Card.h"
 
+
+//Function returns the rank that the card has.
 char Card::getRank(Rank rank) const
 {
     switch (rank)
@@ -36,6 +38,7 @@ char Card::getRank(Rank rank) const
     }
 }
 
+//Function returns the suit that the card has
 char Card::getSuit(Suit suit) const
 {
     switch (suit)
@@ -54,15 +57,17 @@ char Card::getSuit(Suit suit) const
     }
 }
 
+//Helper function so the std::cout it is able to display the card
 std::ostream &operator<<(std::ostream &out, const Card &card)
 {
     out << card.getRank(card.rank) << card.getSuit(card.suit);
     return out;
 }
 
+//Function returns the value that card has
 int Card::value() const
 {
-    switch (this->rank)
+    switch (rank)
     {
     case ace:
         return 1;
