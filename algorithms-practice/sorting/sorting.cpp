@@ -80,39 +80,64 @@ void printVector(const std::vector<int> &vect)
 
 void bubbleSort(std::vector<int> &vect)
 {
-    // we need to go through the whole entire array in order to check every single value. 
-    for (size_t iteration{0}; iteration < vect.size()-1; iteration++)
+    // we need to go through the whole entire array in order to check every single value.
+    for (size_t iteration{0}; iteration < vect.size() - 1; iteration++)
     {
 
         bool swap{false};
-        //This loops checks and compares the values in ascending order. We make sure we dont go past the vector size by subtractin it by one
-        size_t endOfVector{vect.size()-iteration};
+        // This loops checks and compares the values in ascending order. We make sure we dont go past the vector size by subtractin it by one
+        size_t endOfVector{vect.size() - iteration};
         for (size_t currentValue{0}; currentValue < vect.size() - 1; currentValue++)
         {
             size_t adjacentValue{currentValue + 1};
-            
-            //If the current value is greater than the adjacent value we swap it and keep track of the swap.
+
+            // If the current value is greater than the adjacent value we swap it and keep track of the swap.
             if (vect[currentValue] > vect[adjacentValue])
             {
                 std::swap(vect[currentValue], vect[adjacentValue]);
                 swap = true;
             }
         }
-        //If we go throught the whole array without swapping we terminate early.
+        // If we go throught the whole array without swapping we terminate early.
         if (!swap)
         {
-            std::cout << "Early termination in iteration: " << iteration+1<< '\n';
+            std::cout << "Early termination in iteration: " << iteration + 1 << '\n';
             return;
         }
     }
 }
 
+// Function sorts a vector.
+// I implemented it correctly just need to move my variables around as some of them are unecessary
+void insertionSort(std::vector<int> &vect)
+{
+    // We start at index 1 because index 0 is the sorted portion of the vector
+    // Every single iteration we increment because the sorted portion of our vector increases
+    for (size_t currentIndex{1}; currentIndex < vect.size(); currentIndex++)
+    {
+        int currentElement{vect[currentIndex]};
+        size_t sortedIndex{currentIndex - 1};
+
+        // We continously compare the current index to the previous index. The loop ends once we swap everything.
+        while (currentElement < vect[sortedIndex] && sortedIndex >= 0)
+        {
+            vect[sortedIndex + 1] = vect[sortedIndex];
+            --sortedIndex;
+        }
+
+        vect[sortedIndex + 1] = currentElement;
+    }
+}
+
+void mergeSort(std::vector<int> &vect)
+{
+}
 int main()
 {
     std::vector<int> vect{6, 3, 2, 9, 7, 1, 5, 4, 8};
     std::cout << "Before bubble sort: ";
     printVector(vect);
-    bubbleSort(vect);
+    insertionSort(vect);
 
     std::cout << "After bubble sort: ";
     printVector(vect);
