@@ -1,0 +1,44 @@
+$date
+	Wed Feb 05 17:55:17 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module wireTest2_tb $end
+$var wire 1 ! Z $end
+$var wire 1 " Y $end
+$var reg 1 # W $end
+$var reg 1 $ X $end
+$scope module uut $end
+$var wire 1 # W $end
+$var wire 1 $ X $end
+$var wire 1 ! Z $end
+$var wire 1 " Y $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+0$
+0#
+1"
+0!
+$end
+#20
+1#
+#40
+1!
+0"
+1$
+#60
+0#
+#80
+0!
+1"
+0$
