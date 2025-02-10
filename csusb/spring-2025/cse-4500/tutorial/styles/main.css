@@ -1,0 +1,35 @@
+html{
+    font-size: 22px;
+    font-family: cursive; /* this changes the font family*/
+    background-color: #333;
+}
+
+
+h1{
+    
+    font-size: 70px;
+    text-align: center;
+    margin: 0;
+    padding: 20px 0;
+    background-color: green;
+    text-shadow: 3px 3px 12px black;
+}
+
+p,
+li{
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 1px;
+}
+
+a:hover{
+    color: beige;
+}
+a:visited{
+    color: aquamarine;
+}
+.myDiv1{
+    border: 5px outset red;
+    background-color: aquamarine;
+    text-align: center;
+}
