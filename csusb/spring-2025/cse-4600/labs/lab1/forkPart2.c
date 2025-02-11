@@ -20,10 +20,20 @@ int main()
     {
         //this is the child process
         printf("Arcane (PID%d)\n", getpid());
+
+        // Sleep for 5s to simulate a process "working"
+        sleep(1);
+
+        printf("Child process has completed its work.\n");
+
     } else 
     {
         //Parent Process
         printf("David Solis Gallo (PID%d)\n", getpid());
+        
+        //Sleep for 2s to simualte a process "working"
+        sleep(3);
+        printf("Parent process has completed its work.\n");
         
         //wait for child to finish running
         waitpid(pid,&status, 0);
