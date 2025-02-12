@@ -20,6 +20,10 @@ int main()
     {
         // This is the firs child process, which prints my major.
         printf("Computer Science (PID %d)\n", getpid());
+
+        //Similuate work being done.
+        sleep(5);
+        printf("The first child has finsished its work\n");
     }
     else
     {
@@ -39,16 +43,28 @@ int main()
         {
             // This is the second child process, which prints the year I am expected to graduate.
             printf("Spring 2026 (PID %d)\n", getpid());
+
+        //Similuate work being done.
+        sleep(2);
+        printf("The second child has finsished its work\n");
         }
         else
         {
-            // This is the parent after forking a second time
-            // wait for the children to finish running
-            waitpid(pid1, &status1, 0);
-            printf("Child process 1 has exited with status %d\n", WEXITSTATUS(status1));
+            // // This is the parent after forking a second time
+            // // wait for the children to finish running
+            // waitpid(pid1, &status1, 0);
+            // printf("Child process 1 has exited with status %d\n", WEXITSTATUS(status1));
 
-            waitpid(pid2, &status2, 0);
-            printf("Child process 2 has exited with status %d\n", WEXITSTATUS(status2));
+            // waitpid(pid2, &status2, 0);
+            // printf("Child process 2 has exited with status %d\n", WEXITSTATUS(status2));
+
+            //Waits for any child process to finsih regardless of process ID
+            pid_t wait_pid_1 = wait(&status1);
+            printf("Child process (PID %d) has exited with status %d.\n", wait_pid_1, WEXITSTATUS(status1));
+         
+            pid_t wait_pid_2 = wait(&status2);
+            printf("Child process (PID %d) has exited with status %d.\n", wait_pid_2, WEXITSTATUS(status2));
+            
         }
     }
 
