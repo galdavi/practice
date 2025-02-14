@@ -1,5 +1,5 @@
 $date
-	Wed Feb 12 14:43:21 2025
+	Wed Feb 12 14:22:06 2025
 $end
 $version
 	Icarus Verilog
@@ -7,7 +7,7 @@ $end
 $timescale
 	1ns
 $end
-$scope module NORusingNAND_tb $end
+$scope module NANDusingNOR_tb $end
 $var wire 1 ! Q $end
 $var reg 1 " A $end
 $var reg 1 # B $end
@@ -56,9 +56,6 @@ $dumpvars
 1!
 $end
 #20
-0!
-0$
-1%
 0&
 1#
 #40
@@ -67,6 +64,9 @@ $end
 0#
 1"
 #60
+0!
+0$
+1%
 0&
 1#
 #80

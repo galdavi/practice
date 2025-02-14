@@ -1,19 +1,19 @@
 `timescale 1ns/1ns
-`include "NORusingNAND.v"
+`include "NANDusingNOR.v"
 
-//Module test the functionality of module NORusingNAND
-module NORusingNAND_tb;
+//Module test the functionality of module NANDusingNOR
+module NANDusingNOR_tb;
 
 reg A, B;
 wire Q;
 
-//We instantiate NORusingNAND  module
-NORusingNAND uut(A,B,Q);
+//We instantiate a NANDusingNOT module
+NANDusingNOR uut(A,B,Q);
 
 initial begin
 
-    $dumpfile("NORusingNAND_tb.vcd");
-    $dumpvars(0, NORusingNAND_tb);
+    $dumpfile("NANDusingNOR_tb.vcd");
+    $dumpvars(0, NANDusingNOR_tb);
 
     //The following lines of code mimic a truth table, after 20ns both inputs switch into the next row of the table.
     A = 0; B = 0; #20

@@ -1,4 +1,3 @@
-
 //Module implements the NAND gate using two inputs and one output.
 module NANDgate(A,B,Q);
 
@@ -23,4 +22,22 @@ module NORusingNAND(A, B, Q);
     NANDgate u4(E, E, F);       //Take the NAND of wire - !(E*E) - and assign it to wire F.
 
     assign Q = F;               //Assign wire F to output Q.
+endmodule
+
+
+module NOTusingNAND(A, A, Q);
+    input A;
+    output Q;
+
+    NANDgate u1(A, A, Q);
+endmodule
+
+module ANDusingNAND(A, B, Q);
+
+    input A, B;
+    output Q;
+    wire C;
+
+    NANDgate u1(A, B, C);
+    NANDgate u2(C, C, Q);
 endmodule
