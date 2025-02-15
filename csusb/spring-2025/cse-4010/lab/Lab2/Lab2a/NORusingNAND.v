@@ -8,7 +8,7 @@ module NANDgate(A,B,Q);
 
 endmodule
 
-//Module implements the NOR gate only using NAND Gates
+//1 Module implements the NOR gate only using NAND Gates
 module NORusingNAND(A, B, Q);
 
     input A, B;
@@ -24,7 +24,7 @@ module NORusingNAND(A, B, Q);
     assign Q = F;               //Assign wire F to output Q.
 endmodule
 
-
+//2
 module NOTusingNAND(A, A, Q);
     input A;
     output Q;
@@ -32,12 +32,68 @@ module NOTusingNAND(A, A, Q);
     NANDgate u1(A, A, Q);
 endmodule
 
+//3
 module ANDusingNAND(A, B, Q);
 
     input A, B;
     output Q;
-    wire C;
+    wire C, D;
 
     NANDgate u1(A, B, C);
-    NANDgate u2(C, C, Q);
+    NANDgate u2(C, C, D);
+
+    assign Q = D;
+endmodule
+
+//4
+module ORusingNAND(A, B, Q);
+    
+    input A, B;
+    output Q;
+    wire C, D, E;
+
+    NANDgate u1(A, A, C);
+    NANDgate u2(B, B, D);
+    NANDgate u3(C, D, E);
+
+    assign Q = E;
+endmodule
+
+//5
+module NANDusingNAND(A, B, Q);
+    input A, B;
+    output Q;
+
+    NANDgate u1(A, B, Q);
+endmodule
+
+//6\
+module XORusingNAND(A, B, Q);
+    input A, B;
+    output Q;
+
+    wire C, D, E, F;
+
+    NANDgate u1(A, B, C);
+    NANDgate u2(A, C, D);
+    NANDgate u3(B, C, E);
+    NANDgate u4(D, E, F);
+
+    assign Q = F;
+endmodule
+
+//7
+module XNORusingNAND(A, B, Q);
+    input A, B;
+    output Q;
+
+    wire C, D, E, F, G;
+
+    NANDgate u1(A, B, C);
+    NANDgate u2(A, C, D);
+    NANDgate u3(B, C, E);
+    NANDgate u4(D, E, F);
+    NANDgate u5(F, F, G);
+    
+    assign Q = G;
 endmodule
