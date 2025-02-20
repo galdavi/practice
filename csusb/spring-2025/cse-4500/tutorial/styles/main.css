@@ -11,7 +11,7 @@ h1{
     text-align: center;
     margin: 0;
     padding: 20px 0;
-    background-color: green;
+    background-color: rgb(70, 88, 70);
     text-shadow: 3px 3px 12px black;
 }
 
@@ -28,8 +28,13 @@ a:hover{
 a:visited{
     color: aquamarine;
 }
-.myDiv1{
-    border: 5px outset red;
-    background-color: aquamarine;
+
+#contact-davegar{
+    border: 5px outset rgb(53, 15, 15);
+    background-color: rgb(80, 109, 99);
     text-align: center;
+}
+
+#davegar-bio{
+    display: flex;
 }
