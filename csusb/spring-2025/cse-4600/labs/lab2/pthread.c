@@ -25,7 +25,7 @@ int main()
     pthread_create(&thread_handle, NULL, Hello, (void*)thread_number);
     
     //Have the main thread. say hello
-    printf("Hello world form the main thread!\n");
+    printf("Hello world from the main thread!\n");
     
     //Wait for child thread to join
     char *returned_message;

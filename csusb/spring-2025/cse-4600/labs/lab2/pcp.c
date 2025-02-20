@@ -11,10 +11,10 @@ pthread_mutex_t mutex;          //Mutex
 pthread_cond_t not_full;        //Condition variable for a not-full buffer
 pthread_cond_t not_empty;       //Condition variable for a not-empty buffer
 
-int PRODUCE_TIME = 1;           //How long it takes to produce an item.
-int CONSUME_TIME = 2;           //How long it takes to consume an item.
+int PRODUCE_TIME = 2;           //How long it takes to produce an item.
+int CONSUME_TIME = 1;           //How long it takes to consume an item.
 
-int NUM_ITEMS = 4 0;             //How many items to produce/consume
+int NUM_ITEMS = 10;             //How many items to produce/consume
 
 void* Producer()
 {
@@ -62,12 +62,12 @@ void* Consumer()
         //If the bufffer is empty, wait for it fill up.
         while (count == 0)
         {
-            printf("Buffer is empty. Consumeris waiting for buffer to fill...\n");
+            printf("Buffer is empty. Consumer is waiting for buffer to fill...\n");
             pthread_cond_wait(&not_empty, &mutex);
         }
 
         int item = buffer[--count];
-        printf("Consumer has taken an item from the buffer: %d\n", itme);
+        printf("Consumer has taken an item from the buffer: %d\n", item);
 
         //If the bufffer was full, signal to the producer that there's space for new items
         pthread_cond_signal(&not_full);
@@ -92,7 +92,7 @@ int main()
     //Intialize mutex and condition variables
     pthread_mutex_init(&mutex, NULL);
     pthread_cond_init(&not_full, NULL);
-    pthread_cond_init(&not_empty), NULL);
+    pthread_cond_init(&not_empty, NULL);
     
     //Create producer and consumer threads.
     pthread_create(&producer_thread, NULL, Producer,NULL);
