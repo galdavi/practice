@@ -1,11 +1,8 @@
-const myImage = document.querySelector("img");
+var isOver21 = true;
+var hasAnID = false;
 
-myImage.onclick = () => {
-    const mySrc = myImage.getAttribute("src");
-    if(mySrc == "images/davegar.png")
-    {
-        myImage.setAttribute("src", "images/trident.png");
-    } else {
-        myImage.setAttribute("src", "images/davegar.png")
-    }
+if(isOver21 && hasAnID){
+    console.log("The patron is allowed in");
+}else{
+    console.log("The patron is NOT allowed in");
 }
