@@ -1,5 +1,5 @@
 $date
-	Thu Feb 27 12:53:42 2025
+	Thu Feb 27 12:41:38 2025
 $end
 $version
 	Icarus Verilog
@@ -7,33 +7,33 @@ $end
 $timescale
 	1ns
 $end
-$scope module fullAdder_tb $end
-$var wire 1 ! sum $end
-$var wire 1 " carryOut $end
+$scope module fullSubtractor_tb $end
+$var wire 1 ! difference $end
+$var wire 1 " BOut $end
 $var reg 1 # A $end
 $var reg 1 $ B $end
-$var reg 1 % carryIn $end
+$var reg 1 % BIn $end
 $scope module uut $end
 $var wire 1 # A $end
 $var wire 1 $ B $end
-$var wire 1 % carryIn $end
-$var wire 1 " carryOut $end
-$var wire 1 ! sum $end
+$var wire 1 % BIn $end
+$var wire 1 " BOut $end
+$var wire 1 ! difference $end
 $var wire 1 & f $end
 $var wire 1 ' e $end
 $var wire 1 ( d $end
 $var wire 1 ) c $end
 $scope module u1 $end
-$var wire 1 ( carry $end
+$var wire 1 ( borrow $end
+$var wire 1 ) difference $end
 $var wire 1 # op1 $end
 $var wire 1 $ op2 $end
-$var wire 1 ) sum $end
 $upscope $end
 $scope module u2 $end
-$var wire 1 & carry $end
-$var wire 1 % op1 $end
-$var wire 1 ) op2 $end
-$var wire 1 ' sum $end
+$var wire 1 & borrow $end
+$var wire 1 ' difference $end
+$var wire 1 ) op1 $end
+$var wire 1 % op2 $end
 $upscope $end
 $upscope $end
 $upscope $end
@@ -54,45 +54,45 @@ $dumpvars
 0!
 $end
 #20
+1"
 1!
 1'
+1&
 1%
 #40
 1)
-1!
-1'
-1$
-0%
-#60
-1"
-0!
-0'
-1&
-1%
-#80
-0"
+1(
 1!
 1'
 0&
+1$
+0%
+#60
+0!
+0'
+1%
+#80
+0"
+0(
+1!
+1'
 1#
 0$
 0%
 #100
-1"
 0!
 0'
-1&
 1%
 #120
 0)
-1(
 0!
 0'
-0&
 1$
 0%
 #140
+1"
 1!
 1'
+1&
 1%
 #160
