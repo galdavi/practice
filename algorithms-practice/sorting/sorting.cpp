@@ -86,7 +86,7 @@ void bubbleSort(std::vector<int> &vect)
 
         bool swap{false};
         // This loops checks and compares the values in ascending order. We make sure we dont go past the vector size by subtractin it by one
-        size_t endOfVector{vect.size() - iteration};
+        
         for (size_t currentValue{0}; currentValue < vect.size() - 1; currentValue++)
         {
             size_t adjacentValue{currentValue + 1};
