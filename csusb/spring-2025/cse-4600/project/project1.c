@@ -8,8 +8,9 @@ void SJF(int *burst_times, int num_processes);
 void RR(int *burst_times, int num_processes, int quantum);
 
 // Helper function prototypes
-void printProcess(int *bust_times, int *process_ids, int num_processes);
+void printProcessInOrder(int *bust_times, int *process_ids, int num_processes);
 void bubbleSort(int *bust_times, int *process_ids, int num_processes);
+void printBreakLine();
 
 int main()
 {
@@ -42,8 +43,10 @@ int main()
 
     // Calls the scheduling algorithm
 
-    // FCFS(burst_times, num_processes);
-    // SJF(burst_times, num_processes);
+    FCFS(burst_times, num_processes);
+    printBreakLine();
+    SJF(burst_times, num_processes);
+    printBreakLine();
     RR(burst_times, num_processes, 2);
 
     // Since we are allocating memory we need to deallocte memory.
@@ -53,7 +56,7 @@ int main()
 }
 
 // Helper function used to print all the process in order(Array order)
-void printProcess(int *bust_times, int *process_ids, int num_process)
+void printProcessInOrder(int *bust_times, int *process_ids, int num_process)
 {
     for (int i = 0; i < num_process; ++i)
     {
@@ -61,7 +64,15 @@ void printProcess(int *bust_times, int *process_ids, int num_process)
     }
 }
 
+void printBreakLine(){
+    for(int i = 0; i < 50; ++i){
+        printf("=");
+    }
+    printf("\n");
+}
+
 // Helping sorting function that uses bubble sort to sort the processes from least to greatest
+//and keeps track of the process ids
 void bubbleSort(int *burst_times, int *process_ids, int num_processes)
 {
     for (int i = 0; i < num_processes - 1; ++i)
@@ -78,6 +89,7 @@ void bubbleSort(int *burst_times, int *process_ids, int num_processes)
                 burst_times[currentIndex] = burst_times[currentIndex + 1];
                 burst_times[currentIndex + 1] = temp;
 
+                //
                 temp = process_ids[currentIndex];
                 process_ids[currentIndex] = process_ids[currentIndex + 1];
                 process_ids[currentIndex + 1] = temp;
@@ -87,6 +99,9 @@ void bubbleSort(int *burst_times, int *process_ids, int num_processes)
 }
 void FCFS(int *burst_times, int num_processes)
 {
+
+    //Display a message indicating that we are using FCFS
+    printf("The times for FCFS are as follows:\n");
     // Declare variables
     int time_elapsed = 0;
     float avg_waiting_time = 0.0f;
@@ -112,7 +127,7 @@ void FCFS(int *burst_times, int num_processes)
     avg_waiting_time /= (float)num_processes;
     avg_turnaround_time /= (float)num_processes;
 
-    printf("Avg TAT: %f \tAvg WT: %f", avg_turnaround_time, avg_waiting_time);
+    printf("Avg TAT: %f \tAvg WT: %f \n", avg_turnaround_time, avg_waiting_time);
 
     return;
 }
@@ -120,6 +135,8 @@ void FCFS(int *burst_times, int num_processes)
 void SJF(int *burst_times, int num_processes)
 {
 
+    //Display a message indicating that we are using SJF.
+    printf("The times for SJF are as follows:\n");
     // Declare the arrays we will be using so that we can copy and sort the original array
     int *sorted_burst_times = (int *)malloc(num_processes * sizeof(int));
     int *process_ids = (int *)malloc(num_processes * sizeof(int));
@@ -162,14 +179,16 @@ void SJF(int *burst_times, int num_processes)
     avg_waiting_time /= (float)num_processes;
     avg_turnaround_time /= (float)num_processes;
 
-    printf("Avg TAT: %f \tAvg WT: %f", avg_turnaround_time, avg_waiting_time);
+    printf("Avg TAT: %f \tAvg WT: %f \n", avg_turnaround_time, avg_waiting_time);
 
     return;
 }
 
 void RR(int *burst_times, int num_processes, int quantum)
 {
-
+    
+    //Display a message indicating that we are using round robin
+    printf("The times for RR with quantum %i are as follows:\n", quantum);
     // Declare variables and pointers
     int *time_remaining = (int *)malloc(num_processes * sizeof(int));
     int time_elapsed = 0;
@@ -220,5 +239,12 @@ void RR(int *burst_times, int num_processes, int quantum)
     }
     // Deallocate Memory
     free(time_remaining);
+
+    
+    avg_waiting_time /= (float)num_processes;
+    avg_turnaround_time /= (float)num_processes;
+
+    printf("Avg TAT: %f \tAvg WT: %f\n", avg_turnaround_time, avg_waiting_time);
+
     return;
 }
