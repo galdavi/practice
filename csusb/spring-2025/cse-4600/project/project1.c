@@ -8,8 +8,8 @@ void SJF(int *burst_times, int num_processes);
 void RR(int *burst_times, int num_processes, int quantum);
 
 // Helper function prototypes
-void printProcessInOrder(int *bust_times, int *process_ids, int num_processes);
-void bubbleSort(int *bust_times, int *process_ids, int num_processes);
+void printProcessInOrder(int *burst_times, int *process_ids, int num_processes);
+void bubbleSort(int *burst_times, int *process_ids, int num_processes);
 void printBreakLine();
 
 int main()
@@ -47,7 +47,13 @@ int main()
     printBreakLine();
     SJF(burst_times, num_processes);
     printBreakLine();
-    RR(burst_times, num_processes, 2);
+    RR(burst_times, num_processes, 3);
+    printBreakLine();
+    RR(burst_times, num_processes, 3);
+    printBreakLine();
+    RR(burst_times, num_processes, 3);
+    printBreakLine();
+    RR(burst_times, num_processes, 3);
 
     // Since we are allocating memory we need to deallocte memory.
     // Avoids memory leak.
@@ -55,24 +61,25 @@ int main()
     return 0;
 }
 
-// Helper function used to print all the process in order(Array order)
-void printProcessInOrder(int *bust_times, int *process_ids, int num_process)
+// Helper Function: Prints all the process in order (Array order)
+void printProcessInOrder(int *burst_times, int *process_ids, int num_process)
 {
     for (int i = 0; i < num_process; ++i)
     {
-        printf("Process %i: \tBT: %i \n", process_ids[i], bust_times[i]);
+        printf("Process %i: \tBT: %i \n", process_ids[i], burst_times[i]);
     }
 }
 
+// Helper Function: Prints a horizontal separator line to the console.
 void printBreakLine(){
-    for(int i = 0; i < 50; ++i){
+    const int numOfBreakCh = 75;
+    for(int i = 0; i < numOfBreakCh ; ++i){
         printf("=");
     }
     printf("\n");
 }
 
-// Helping sorting function that uses bubble sort to sort the processes from least to greatest
-//and keeps track of the process ids
+// Helper function: Sorts porcess based on burst times using Bubble Sort and keeps process IDs aligned.
 void bubbleSort(int *burst_times, int *process_ids, int num_processes)
 {
     for (int i = 0; i < num_processes - 1; ++i)
@@ -97,6 +104,8 @@ void bubbleSort(int *burst_times, int *process_ids, int num_processes)
         }
     }
 }
+
+//Function: First-Come, First-Served scheduling algorithm
 void FCFS(int *burst_times, int num_processes)
 {
 
@@ -127,11 +136,12 @@ void FCFS(int *burst_times, int num_processes)
     avg_waiting_time /= (float)num_processes;
     avg_turnaround_time /= (float)num_processes;
 
-    printf("Avg TAT: %f \tAvg WT: %f \n", avg_turnaround_time, avg_waiting_time);
+    printf("Avg WT: %f \tAvg TAT: %f \n", avg_waiting_time,avg_turnaround_time);
 
     return;
 }
 
+//Function: Shortes Job First scheduling algorithm
 void SJF(int *burst_times, int num_processes)
 {
 
@@ -179,11 +189,12 @@ void SJF(int *burst_times, int num_processes)
     avg_waiting_time /= (float)num_processes;
     avg_turnaround_time /= (float)num_processes;
 
-    printf("Avg TAT: %f \tAvg WT: %f \n", avg_turnaround_time, avg_waiting_time);
+    printf("Avg WT: %f \tAvg TAT: %f \n", avg_waiting_time,avg_turnaround_time);
 
     return;
 }
 
+//Function: Round Robin scheduling algorithm
 void RR(int *burst_times, int num_processes, int quantum)
 {
     
@@ -207,7 +218,7 @@ void RR(int *burst_times, int num_processes, int quantum)
     {
         for (int i = 0; i < num_processes; ++i)
         {
-            
+            //If the time remaining is zero we skip it
             if(time_remaining[i] == 0)
                 continue;
 
@@ -232,9 +243,15 @@ void RR(int *burst_times, int num_processes, int quantum)
             }
         }
 
+        //We set this variable to true so it can help us checkm if all processes are comple
         all_processes_complete = true;
         for(int j = 0; j < num_processes; j++){
+            //If we come across a time remaining of zer0 all_processes_comple will default to false 
             all_processes_complete = all_processes_complete && (time_remaining[j] == 0);
+            
+            //If we come across a false then we just skip checking the loop
+            if (!all_processes_complete)
+                break;
         }
     }
     // Deallocate Memory
@@ -244,7 +261,7 @@ void RR(int *burst_times, int num_processes, int quantum)
     avg_waiting_time /= (float)num_processes;
     avg_turnaround_time /= (float)num_processes;
 
-    printf("Avg TAT: %f \tAvg WT: %f\n", avg_turnaround_time, avg_waiting_time);
+    printf("Avg WT: %f \tAvg TAT: %f \n", avg_waiting_time,avg_turnaround_time);
 
     return;
 }
