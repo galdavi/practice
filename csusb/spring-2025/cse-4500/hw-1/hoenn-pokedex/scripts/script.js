@@ -1,6 +1,6 @@
 const poke_container = document.getElementById('poke-container');
-const pokemon_start = 1;
-const pokemon_count = 152;
+const pokemon_start = 252;
+const pokemon_count = 387;
 
 const colors = {
     fire: '#FDDFDF',

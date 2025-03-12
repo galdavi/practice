@@ -1,0 +1,35 @@
+*{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+body{
+    background-color: olivedrab;
+    background: linear-gradient(to right,olivedrab, beige);
+}
+
+.main-container{
+    background-color: rgb(185, 185, 10);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+figure{
+    margin:auto;
+    display: block;
+    max-width: 100%;
+    text-align: center;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+h1{
+    text-align: center;
+}
+
+div{
+    justify-content: space-between;
+    display: flex;
+}

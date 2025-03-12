@@ -1,6 +1,6 @@
 const poke_container = document.getElementById('poke-container');
-const pokemon_start = 1;
-const pokemon_count = 152;
+const pokemon_start = 152;
+const pokemon_count = 252;
 
 const colors = {
     fire: '#FDDFDF',
@@ -27,7 +27,6 @@ async function fetchPokemons() {
         await getPokemon(i);
     }
 }
-
 async function getPokemon(id) {
     const url = 'https://pokeapi.co/api/v2/pokemon/' + id;
     const response = await fetch(url);

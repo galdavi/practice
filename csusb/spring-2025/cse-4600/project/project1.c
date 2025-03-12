@@ -28,7 +28,7 @@ int main()
     // Ask the user how long are the processes running for.
     for (int i = 0; i < num_processes; i++)
     {
-        printf("Enter the burst time for process %i of %i: ", i, num_processes);
+        printf("Enter the burst time for process %i of %i: ", (i+1), num_processes);
         scanf("%d", &burst_times[i]);
     }
 
@@ -47,13 +47,11 @@ int main()
     printBreakLine();
     SJF(burst_times, num_processes);
     printBreakLine();
-    RR(burst_times, num_processes, 3);
+    RR(burst_times, num_processes, 2);
     printBreakLine();
-    RR(burst_times, num_processes, 3);
+    RR(burst_times, num_processes, 4);
     printBreakLine();
-    RR(burst_times, num_processes, 3);
-    printBreakLine();
-    RR(burst_times, num_processes, 3);
+    RR(burst_times, num_processes, 6);
 
     // Since we are allocating memory we need to deallocte memory.
     // Avoids memory leak.
