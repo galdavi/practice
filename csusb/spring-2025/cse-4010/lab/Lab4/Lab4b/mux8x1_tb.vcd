@@ -1,0 +1,79 @@
+$date
+	Wed Mar 12 18:23:23 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module mux8x1_tb $end
+$var wire 1 ! O $end
+$var reg 1 " A $end
+$var reg 1 # B $end
+$var reg 1 $ C $end
+$var reg 1 % D $end
+$var reg 1 & E $end
+$var reg 1 ' F $end
+$var reg 1 ( G $end
+$var reg 1 ) H $end
+$var reg 1 * Sel0 $end
+$var reg 1 + Sel1 $end
+$var reg 1 , Sel2 $end
+$scope module uut $end
+$var wire 1 " a $end
+$var wire 1 # b $end
+$var wire 1 $ c $end
+$var wire 1 % d $end
+$var wire 1 & e $end
+$var wire 1 ' f $end
+$var wire 1 ( g $end
+$var wire 1 ) h $end
+$var wire 1 * sel0 $end
+$var wire 1 + sel1 $end
+$var wire 1 , sel2 $end
+$var wire 1 ! out $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+0,
+0+
+0*
+x)
+x(
+x'
+x&
+1%
+0$
+1#
+0"
+0!
+$end
+#20
+1!
+1,
+#40
+0!
+1+
+0,
+#60
+1!
+1,
+#80
+x!
+1*
+0+
+0,
+#100
+1,
+#120
+1+
+0,
+#140
+1,
+#160
