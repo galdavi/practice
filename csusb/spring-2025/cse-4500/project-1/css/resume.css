@@ -13,21 +13,6 @@ body{
     border-radius: 10px;
 }
 
-figure{
-    margin:auto;
-    display: block;
-    max-width: 100%;
-    text-align: center;
-}
-
-img{
-    max-width: 100%;
-    height: auto;
-}
-
-h1{
-    text-align: center;
-}
 
 .links{
     background-color: rgb(185, 185, 10);
