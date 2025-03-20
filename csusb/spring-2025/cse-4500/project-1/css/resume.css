@@ -1,21 +1,22 @@
 *{
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 20px;
+    color: white;
 }
 body{
-    background-color: olivedrab;
-    background: linear-gradient(to right,olivedrab, beige);
+    background-color: #1b4958;
+    background: linear-gradient(to right,#1b4958, #2d2d0d);
 }
 
 .main-container{
-    background-color: rgb(185, 185, 10);
+    background-color: rgb(28, 117, 62);
     padding: 10px;
     border-radius: 10px;
 }
 
 
 .links{
-    background-color: rgb(185, 185, 10);
+    background-color: rgb(28, 117, 62);
     padding: 10px;
     border-radius: 10px;
     justify-content: space-between;

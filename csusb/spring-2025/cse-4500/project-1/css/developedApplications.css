@@ -1,10 +1,11 @@
 *{
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 20px;
+    color: white;
 }
 body{
-    background-color: rgb(120, 182, 197);
-    background: linear-gradient(to right,rgb(120, 182, 197), beige);
+    background-color: #1b4958;
+    background: linear-gradient(to right,#1b4958, #2d2d0d);
 }
 
 .main-container{
@@ -16,7 +17,7 @@ body{
     padding: 20px;
 }
 
-h1{
+h1,h3{
     text-align: center;
 }
 
@@ -31,4 +32,12 @@ h1{
 
 img{
     width: 70%;
+}
+
+.links{
+    background-color: rgb(28, 117, 62);
+    padding: 10px;
+    border-radius: 10px;
+    justify-content: space-between;
+    display: flex;
 }
