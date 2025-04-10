@@ -9,14 +9,14 @@ body{
 }
 
 .main-container{
-    background-color: rgb(28, 117, 62);
+    background-color: rgb(15, 46, 27);
     padding: 10px;
     border-radius: 10px;
 }
 
 
 .links{
-    background-color: rgb(28, 117, 62);
+    background-color: rgb(15, 46, 27);
     padding: 10px;
     border-radius: 10px;
     justify-content: space-between;

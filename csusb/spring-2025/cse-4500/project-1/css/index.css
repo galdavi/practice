@@ -10,13 +10,13 @@ body {
 }
 
 .main-container {
-    background-color: rgb(28, 117, 62);
+    background-color: rgb(15, 46, 27);
     padding: 10px;
     border-radius: 10px;
 }
 
 .technologies {
-    background-color: rgb(28, 117, 62);
+    background-color: rgb(15, 46, 27);
     padding: 10px;
     border-radius: 10px;
     display: flex;
@@ -52,7 +52,7 @@ h3 {
 }
 
 .links {
-    background-color: rgb(28, 117, 62);
+    background-color: rgb(15, 46, 27);
     padding: 10px;
     border-radius: 10px;
     justify-content: space-between;
